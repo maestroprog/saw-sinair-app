@@ -8,6 +8,6 @@ define('ENV', 'WEB');
 require_once __DIR__ . '/../vendor/autoload.php';
 
 Saw::instance()
-    ->init(__DIR__ . '/../config.php')
+    ->init(__DIR__ . '/../config/config.php')
     ->instanceApp(SinairApp::class)
     ->run();

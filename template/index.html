@@ -55,7 +55,7 @@
     <div class="title"><a href="">MCGL online monitor</a></div>
 </div>
 <div class="content">
-    {{ content }}
+    {{ content|raw}}
 </div>
 <div style="text-align: center; margin: 10px;"><?= round($ended * 1000, 1); ?> ms, Copyright 2012-2018 by Assasin</div>
 </body>

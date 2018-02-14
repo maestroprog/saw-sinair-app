@@ -1,29 +1,32 @@
 {
-    "name": "maestroprog/saw-sinair-app",
-    "type": "project",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Ruslan Yarullin",
-            "email": "maestroprog@gmail.com"
-        }
-    ],
-    "require": {
-        "ext-memcache": "*",
-        "maestroprog/saw": "dev-0.2-dev",
-        "iassasin/phplate": "^2.0",
-        "iassasin/fidb": "^0.1.3"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:qwerty-php/app-interface.git"
-        }
-    ],
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "Iassasin\\Sinair\\SampleApp\\": "src/"
-        }
+  "name": "maestroprog/saw-sinair-app",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ruslan Yarullin",
+      "email": "maestroprog@gmail.com"
     }
+  ],
+  "require": {
+    "ext-memcache": "*",
+    "maestroprog/saw": "^0.2.2",
+    "iassasin/phplate": "^2.0",
+    "iassasin/fidb": "^0.1.3"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:qwerty-php/app-interface.git"
+    }
+  ],
+  "minimum-stability": "beta",
+  "autoload": {
+    "psr-4": {
+      "Iassasin\\Sinair\\SampleApp\\": "src/"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
 }

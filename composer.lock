@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "531f0408384b013592d466209236c271",
+    "content-hash": "3e42e30c0fbf7f7378b5401ecf14a959",
     "packages": [
         {
             "name": "iassasin/fidb",
@@ -138,7 +138,7 @@
         },
         {
             "name": "maestroprog/esockets",
-            "version": "dev-2.1-dev",
+            "version": "2.1-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maestroprog/esockets.git",
@@ -182,31 +182,37 @@
         },
         {
             "name": "maestroprog/saw",
-            "version": "dev-0.2-dev",
+            "version": "0.2.2-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maestroprog/saw-php.git",
-                "reference": "c03133647e3c1676b977ba62ba9789111501cca1"
+                "reference": "cf308068cd87c2874c790e2cbc803e044fa8ef24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maestroprog/saw-php/zipball/c03133647e3c1676b977ba62ba9789111501cca1",
-                "reference": "c03133647e3c1676b977ba62ba9789111501cca1",
+                "url": "https://api.github.com/repos/maestroprog/saw-php/zipball/cf308068cd87c2874c790e2cbc803e044fa8ef24",
+                "reference": "cf308068cd87c2874c790e2cbc803e044fa8ef24",
                 "shasum": ""
             },
             "require": {
                 "maestroprog/di-container": "^1.0",
-                "maestroprog/esockets": "dev-2.1-dev as 2.1",
+                "maestroprog/esockets": "^2.1",
                 "qwerty-php/app-interface": "1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": ">=7.0",
                 "satooshi/php-coveralls": "^1.0"
             },
+            "bin": [
+                "bin/controller",
+                "bin/worker",
+                "bin/debug"
+            ],
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Maestroprog\\Saw\\": "src/"
+                    "Maestroprog\\Saw\\": "src/",
+                    "Maestroprog\\Saw\\Sample\\": "sample/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -227,20 +233,20 @@
                 "async",
                 "framework"
             ],
-            "time": "2018-02-13T22:35:57+00:00"
+            "time": "2018-02-14T20:36:12+00:00"
         },
         {
             "name": "psr/container",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
-                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
                 "shasum": ""
             },
             "require": {
@@ -276,7 +282,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-06-28T15:35:32+00:00"
+            "time": "2017-02-14T16:28:37+00:00"
         },
         {
             "name": "qwerty-php/app-interface",
@@ -320,12 +326,12 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "maestroprog/saw": 20
-    },
+    "minimum-stability": "beta",
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-memcache": "*"
+    },
     "platform-dev": []
 }

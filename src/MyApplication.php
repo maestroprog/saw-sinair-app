@@ -54,6 +54,7 @@ class MyApplication extends BasicMultiThreaded
 
     protected function main($prepared): void
     {
+        $this->init();
 
         echo '<div class="content-inner mcgl-online-block"><a href="/mcgl/ping/">Состояния каналов (beta)</a></div>';
         echo '<div class="content-inner mcgl-online-block">Онлайн по минутам (вертикальные линии - часы):<br/>';
@@ -118,10 +119,10 @@ class MyApplication extends BasicMultiThreaded
                 'origvals' => $origvals,
             ]);
             return $html
-                . ' templating ' . (microtime(true) - $tpl)
+                /*. ' templating ' . (microtime(true) - $tpl)
                 . ' local timings ' . implode('<br>', array_map(function (AbstractThread $t) {
                     return ' ' . $t->getUniqueId() . ' by ' . $t->getWorkerId() . ' ' . $t->getExecTime();
-                }, $ts)) . ' awaiting ' . (microtime(true) - $start);
+                }, $ts)) . ' awaiting '*/ . (microtime(true) - $start);
         });
 
         $htmlThreads[] = $todayMaximum = $this->thread('today_maximum', function () {
@@ -160,7 +161,7 @@ class MyApplication extends BasicMultiThreaded
                 }
             }
 
-            return print_diagram('Максимальный онлайн в сутки:', $vals, $min, $max, 800, 100, 40, 11);
+            return $this->print_diagram('Максимальный онлайн в сутки:', $vals, $min, $max, 800, 100, 40, 11);
         });
 
         $htmlThreads[] = $lastDayAvg = $this->thread('last_day_avg', function () {
@@ -185,7 +186,7 @@ class MyApplication extends BasicMultiThreaded
                 }
             }
 
-            return print_diagram('Средний онлайн в сутки (без учета нулей):', $valsavg, $minavg, $maxavg, 800, 100, 40, 11);
+            return $this->print_diagram('Средний онлайн в сутки (без учета нулей):', $valsavg, $minavg, $maxavg, 800, 100, 40, 11);
         });
 
         $htmlThreads[] = $monthlyMax = $this->thread('monthly_max', function () {
@@ -209,7 +210,7 @@ class MyApplication extends BasicMultiThreaded
                 }
             }
 
-            return print_diagram('Максимальный онлайн за месяц:', $vals, $min, $max, 800, 100, 40, 11);
+            return $this->print_diagram('Максимальный онлайн за месяц:', $vals, $min, $max, 800, 100, 40, 11);
         });
 
         $htmlThreads[] = $monthlyAvg = $this->thread('monthly_avg', function () {
@@ -233,7 +234,7 @@ class MyApplication extends BasicMultiThreaded
                 }
             }
 
-            return print_diagram('Средний онлайн за месяц (без учета нулей):', $vals, $min, $max, 800, 100, 40, 11);
+            return $this->print_diagram('Средний онлайн за месяц (без учета нулей):', $vals, $min, $max, 800, 100, 40, 11);
         });
 
         $this->htmls = $htmlThreads;
