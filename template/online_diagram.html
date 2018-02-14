@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="{{h}}" width="{{w}}">
+<defs>
+	<linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="g1">
+		<stop stop-opacity="0.9" stop-color="#444" offset="0%"/>
+		<stop stop-opacity="0.9" stop-color="#777" offset="100%"/>
+	</linearGradient>
+	<linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="g2">
+		<stop stop-opacity="0.9" stop-color="#433" offset="0%"/>
+		<stop stop-opacity="0.9" stop-color="#733" offset="100%"/>
+	</linearGradient>
+</defs>
+	<rect fill="black" height="100%" width="100%" y="0" x="0"/> 
+	<line style="stroke:white;stroke-width:0.1px;" y2="50%" x2="100%" y1="50%" x1="0"/>
+	<line style="stroke:white;stroke-width:0.1px;" y2="25%" x2="100%" y1="25%" x1="0"/>
+	<line style="stroke:white;stroke-width:0.1px;" y2="75%" x2="100%" y1="75%" x1="0"/>
+	<g>
+	{? for v in vals ?}
+		<rect transform="translate(0 100) scale(1 -1)" fill="url(#g{{v.s}})" height="{{v.y}}" width="{{rw}}" y="0" x="{{v.x}}"/>
+		<text text-anchor="middle" font-size="{{fs}}px" fill="#ff7" y="{{v.ty}}" x="{{v.tx}}">{{v.v}}</text>
+		<text text-anchor="middle" font-size="{{fs}}px" fill="white" y="{{to}}" x="{{v.tx}}">{{v.t}}</text>
+	{? end ?}
+	</g>
+</svg>

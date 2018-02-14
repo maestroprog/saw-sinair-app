@@ -1,0 +1,331 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "531f0408384b013592d466209236c271",
+    "packages": [
+        {
+            "name": "iassasin/fidb",
+            "version": "v0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iassasin/fidb.git",
+                "reference": "eed4c81b1c00e0c0b50b5255154966966caeb434"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iassasin/fidb/zipball/eed4c81b1c00e0c0b50b5255154966966caeb434",
+                "reference": "eed4c81b1c00e0c0b50b5255154966966caeb434",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Iassasin\\Fidb\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "iassasin",
+                    "email": "iassasin@yandex.ru"
+                }
+            ],
+            "description": "Very lightweight and simple database interface for PHP",
+            "homepage": "https://github.com/iassasin/fidb",
+            "keywords": [
+                "database",
+                "database interface",
+                "db"
+            ],
+            "time": "2018-01-12T13:42:15+00:00"
+        },
+        {
+            "name": "iassasin/phplate",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iassasin/phplate.git",
+                "reference": "380a818a8aa4b8a62c61a3a7299ebb9c1233b213"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iassasin/phplate/zipball/380a818a8aa4b8a62c61a3a7299ebb9c1233b213",
+                "reference": "380a818a8aa4b8a62c61a3a7299ebb9c1233b213",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.3",
+                "satooshi/php-coveralls": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Iassasin\\Phplate\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "iassasin",
+                    "email": "iassasin@yandex.ru"
+                }
+            ],
+            "description": "Lightweight template engine for PHP",
+            "homepage": "https://github.com/iassasin/phplate",
+            "keywords": [
+                "preprocessor",
+                "template"
+            ],
+            "time": "2018-02-06T20:22:20+00:00"
+        },
+        {
+            "name": "maestroprog/di-container",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maestroprog/di-container.git",
+                "reference": "810563dff8fa1c0f945125cb34981a287d3c033f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maestroprog/di-container/zipball/810563dff8fa1c0f945125cb34981a287d3c033f",
+                "reference": "810563dff8fa1c0f945125cb34981a287d3c033f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/container": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.2",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Maestroprog\\Container\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ruslan Yarullin",
+                    "email": "maestroprog@gmail.com",
+                    "homepage": "http://yr0.ru",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple realisation of dependency injection container.",
+            "time": "2018-01-21T11:54:01+00:00"
+        },
+        {
+            "name": "maestroprog/esockets",
+            "version": "dev-2.1-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maestroprog/esockets.git",
+                "reference": "85d1885a5f68d267e5a4f67ccd959bafb99dd38f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maestroprog/esockets/zipball/85d1885a5f68d267e5a4f67ccd959bafb99dd38f",
+                "reference": "85d1885a5f68d267e5a4f67ccd959bafb99dd38f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Esockets\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ruslan Yarullin",
+                    "email": "maestroprog@gmail.com",
+                    "homepage": "http://yr0.ru",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy sockets for PHP7.1+",
+            "homepage": "https://github.com/maestroprog/esockets",
+            "keywords": [
+                "Socket",
+                "ipc",
+                "networking"
+            ],
+            "time": "2018-02-13T22:21:12+00:00"
+        },
+        {
+            "name": "maestroprog/saw",
+            "version": "dev-0.2-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maestroprog/saw-php.git",
+                "reference": "c03133647e3c1676b977ba62ba9789111501cca1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maestroprog/saw-php/zipball/c03133647e3c1676b977ba62ba9789111501cca1",
+                "reference": "c03133647e3c1676b977ba62ba9789111501cca1",
+                "shasum": ""
+            },
+            "require": {
+                "maestroprog/di-container": "^1.0",
+                "maestroprog/esockets": "dev-2.1-dev as 2.1",
+                "qwerty-php/app-interface": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=7.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Maestroprog\\Saw\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ruslan Yarullin",
+                    "email": "maestroprog@gmail.com",
+                    "homepage": "http://yr0.ru/",
+                    "role": "developer"
+                }
+            ],
+            "description": "Async multi-threading php framework",
+            "keywords": [
+                "Thread",
+                "async",
+                "framework"
+            ],
+            "time": "2018-02-13T22:35:57+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
+                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "time": "2017-06-28T15:35:32+00:00"
+        },
+        {
+            "name": "qwerty-php/app-interface",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qwerty-php/app-interface.git",
+                "reference": "bd74f3e52235e34f6a2ed5d234635066e82ac002"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qwerty-php/app-interface/zipball/bd74f3e52235e34f6a2ed5d234635066e82ac002",
+                "reference": "bd74f3e52235e34f6a2ed5d234635066e82ac002",
+                "shasum": ""
+            },
+            "require": {
+                "psr/container": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Qwerty\\Application\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ruslan Yarullin",
+                    "email": "maestroprog@gmail.com"
+                }
+            ],
+            "description": "Application interface for qwerty framework",
+            "support": {
+                "source": "https://github.com/qwerty-php/app-interface/tree/1.0",
+                "issues": "https://github.com/qwerty-php/app-interface/issues"
+            },
+            "time": "2017-09-17T18:16:11+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "maestroprog/saw": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

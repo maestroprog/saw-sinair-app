@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MCGL online monitor - SinAir</title>
+
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="shortcut icon" href="https://sinair.ru/favicon.ico"/>
+
+    <link rel="stylesheet" href="https://sinair.ru/style.css" type="text/css">
+    <link rel="stylesheet" href="https://sinair.ru/res/css/ruller.css" type="text/css">
+
+    <script type="text/javascript" src="https://sinair.ru/res/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://sinair.ru/res/js/base.js"></script>
+    <script type="text/javascript" src="https://sinair.ru/res/js/ruller.js"></script>
+</head>
+<body>
+<div class="tb-panel">
+    <div class="navigator">
+        <div class="navigator-title"><img src="https://sinair.ru/res/i/cloud.svg"> &nbsp;Сервисы ▼</div>
+        <div class="services">
+            <ul><a href="//sinair.ru/">
+                <li><img src="https://sinair.ru/res/home.png"> &nbsp;Домашняя страница</li>
+            </a><a href="//mc.sinair.ru/">
+                <li><img src="/res/lhc.png"> &nbsp;LHCreator, соседний проект</li>
+            </a><a href="//bash.sinair.ru/">
+                <li><img src="/res/bayan_new.png"> &nbsp;Цитатник</li>
+            </a><a href="//sinair.ru/chat/">
+                <li><img src="/res/chat.png"> &nbsp;Онлайн чат</li>
+            </a><a href="//sinair.ru/memos/">
+                <li><img src="/res/pencil.svg"> &nbsp;Мои рассказы</li>
+            </a><a href="//sinair.ru/mcgl/online/">
+                <li><img src="/res/graph.png"> &nbsp;MCGL, график онлайна</li>
+            </a><a href="http://ralf.sinair.ru/">
+                <li><img src="/res/coins.png"> &nbsp;MCGL, цены ресурсов</li>
+            </a><a href="//sinair.ru/f/">
+                <li><img src="/res/up.png"> &nbsp;Файлообменка</li>
+            </a><a href="//sinair.ru/paste/">
+                <li><img src="/res/paste.png"> &nbsp;Текстовые пасты</li>
+            </a><a href="//sinair.ru/l/">
+                <li><img src="/res/cut.png"> &nbsp;Сокращатель ссылок</li>
+            </a><a href="//sinair.ru/donate/">
+                <li class="donate"><img src="/res/donate.png"> &nbsp;Пожертвования</li>
+            </a>
+            </ul>
+        </div>
+    </div>
+    <div class="profile">
+        <a href="//sinair.ru/auth.php" class="tb-btn" title="Войти"><img src="https://sinair.ru/res/key.png">
+        </a><a href="//sinair.ru/register.php" class="tb-btn" title="Регистрация"><img
+            src="https://sinair.ru/res/user.png">
+    </a>
+    </div>
+    <div class="title"><a href="">MCGL online monitor</a></div>
+</div>
+<div class="content">
+    {{ content }}
+</div>
+<div style="text-align: center; margin: 10px;"><?= round($ended * 1000, 1); ?> ms, Copyright 2012-2018 by Assasin</div>
+</body>
+</html>
