@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e42e30c0fbf7f7378b5401ecf14a959",
+    "content-hash": "5b358cdaee443794ef5ed6d7e8761a4d",
     "packages": [
         {
             "name": "iassasin/fidb",
@@ -182,16 +182,16 @@
         },
         {
             "name": "maestroprog/saw",
-            "version": "0.2.2-beta",
+            "version": "0.2.3-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maestroprog/saw-php.git",
-                "reference": "cf308068cd87c2874c790e2cbc803e044fa8ef24"
+                "reference": "4c14437bbba7d672dccbd6bd6c715a35310a870c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maestroprog/saw-php/zipball/cf308068cd87c2874c790e2cbc803e044fa8ef24",
-                "reference": "cf308068cd87c2874c790e2cbc803e044fa8ef24",
+                "url": "https://api.github.com/repos/maestroprog/saw-php/zipball/4c14437bbba7d672dccbd6bd6c715a35310a870c",
+                "reference": "4c14437bbba7d672dccbd6bd6c715a35310a870c",
                 "shasum": ""
             },
             "require": {
@@ -233,7 +233,7 @@
                 "async",
                 "framework"
             ],
-            "time": "2018-02-14T20:36:12+00:00"
+            "time": "2018-02-16T19:39:29+00:00"
         },
         {
             "name": "psr/container",
@@ -327,7 +327,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "beta",
-    "stability-flags": [],
+    "stability-flags": {
+        "maestroprog/saw": 10
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

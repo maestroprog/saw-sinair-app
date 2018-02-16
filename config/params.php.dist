@@ -1,0 +1,8 @@
+<?php
+
+return [
+    'Db_host' => 'localhost',
+    'Db_name' => 'test',
+    'Db_user' => 'root',
+    'Db_pass' => 'root',
+];

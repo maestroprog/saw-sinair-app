@@ -10,7 +10,7 @@ return [
     Configurator::CONNECTION_CONFIG => [
         SocketFactory::SOCKET_DOMAIN => AF_INET,
         SocketFactory::SOCKET_PROTOCOL => SOL_UDP,
-        SocketFactory::WAIT_INTERVAL => 10,
+        SocketFactory::WAIT_INTERVAL => 1,
     ],
     Configurator::PROTOCOL_CLASS => LoggingProtocol::withRealProtocolClass(EasyDataGram::class),
 ];

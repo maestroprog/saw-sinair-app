@@ -7,7 +7,10 @@ use Iassasin\Phplate\Exception\PhplateConfigException;
 use Iassasin\Phplate\Template;
 use Iassasin\Phplate\TemplateOptions;
 use Maestroprog\Saw\Application\BasicMultiThreaded;
+use Maestroprog\Saw\Application\Context\ContextPool;
+use Maestroprog\Saw\Memory\SharedMemoryInterface;
 use Maestroprog\Saw\Thread\AbstractThread;
+use Maestroprog\Saw\Thread\MultiThreadingProvider;
 
 class MyApplication extends BasicMultiThreaded
 {
@@ -21,16 +24,27 @@ class MyApplication extends BasicMultiThreaded
     private $i;
     private $p;
 
-    /** @var MCGLOnline */
     private $mcglOnline;
-
-    /** @var \Iassasin\Fidb\Connection\ConnectionMysql */
     private $db;
 
-    private $conn;
+    public function __construct(
+        string $id,
+        MultiThreadingProvider $multiThreadingProvider,
+        SharedMemoryInterface $applicationMemory,
+        ContextPool $contextPool,
+        MCGLOnline $mcglOnline,
+        ConnectionMysql $db
+    )
+    {
+        parent::__construct($id, $multiThreadingProvider, $applicationMemory, $contextPool);
+
+        $this->mcglOnline = $mcglOnline;
+        $this->db = $db;
+    }
 
     public function init(): void
     {
+        $this->i = microtime(true);
         $options = new TemplateOptions();
         try {
             $options->setCacheDir(__DIR__ . '/../cache/');
@@ -38,11 +52,6 @@ class MyApplication extends BasicMultiThreaded
             die('Cannot open cache dir.');
         }
         Template::init(__DIR__ . '/../template/', $options);
-
-        $this->i = microtime(true);
-        $this->db = new ConnectionMysql('localhost', 'saw', 'root', 'root');
-        $this->mcglOnline = new MCGLOnline($this->db);
-        $this->conn = microtime(true) - $this->i;
     }
 
     public function prepare()
@@ -251,7 +260,6 @@ class MyApplication extends BasicMultiThreaded
         $time = microtime(true);
         $this->synchronizeAll();
         $ended = microtime(true) - $this->i;
-//        $timinigs = [];
         $content = '';
         foreach ($this->htmls as $html) {
             $content .= $html->getResult();
@@ -262,15 +270,18 @@ class MyApplication extends BasicMultiThreaded
                 . ' really exec time: ' . round($html->getExecTime() * 1000, 1)
                 . ' on worker ' . $html->getWorkerId();*/
         }
-//        $timinigs[] = '';
-
-//        echo implode('<br>', $timinigs);
-
-        /*var_dump('conn' . ' : ' . ($this->conn));
-        var_dump('sync' . ' : ' . (microtime(true) - $time));
-        var_dump('after init' . ' : ' . (microtime(true) - $this->p));
-        var_dump('common' . ' : ' . ($ended));*/
-        echo Template::build('index', ['content' => $content]);
+        echo Template::build(
+            'index',
+            [
+                'content' => $content,
+                'timing' => round($ended * 1000, 1),
+                'times' => [
+                    ['label' => 'p', 'time' => microtime(true) - $this->p],
+                    ['label' => 'sync', 'time' => microtime(true) - $time],
+                    ['label' => 'ended', 'time' => $ended],
+                ],
+            ]
+        );
     }
 
     private function print_diagram($title, $vals, $min, $max, $w, $h, $rw, $fs)

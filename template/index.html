@@ -57,6 +57,11 @@
 <div class="content">
     {{ content|raw}}
 </div>
-<div style="text-align: center; margin: 10px;"><?= round($ended * 1000, 1); ?> ms, Copyright 2012-2018 by Assasin</div>
+<div style="color:gray; text-align: center;">
+    {? for v in times ?}
+    <b>{{ v.label }}</b> <span>{{ v.time }}</span><br>
+    {? end ?}
+</div>
+<div style="text-align: center; margin: 10px;">{{ timing }} ms, Copyright 2012-2018 by Assasin</div>
 </body>
 </html>
