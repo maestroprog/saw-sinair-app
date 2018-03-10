@@ -2,9 +2,9 @@
 
 namespace Iassasin\Sinair\SampleApp;
 
-use Esockets\base\AbstractProtocol;
-use Esockets\base\PingPacket;
-use Esockets\base\PingSupportInterface;
+use Esockets\Base\AbstractProtocol;
+use Esockets\Base\PingPacket;
+use Esockets\Base\PingSupportInterface;
 
 class LoggingProtocol extends AbstractProtocol implements PingSupportInterface
 {

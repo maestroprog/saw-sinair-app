@@ -26,9 +26,12 @@ class ParamsContainer implements IterableContainerInterface
 
     public function list(): array
     {
-        return array_combine(
-            array_keys($this->params),
-            array_fill(0, count($this->params), new Argument('string', []))
-        );
+        $list = [];
+
+        foreach (array_keys($this->params) as $name) {
+            $list[$name] = new Argument($name, 'string', []);
+        }
+
+        return $list;
     }
 }

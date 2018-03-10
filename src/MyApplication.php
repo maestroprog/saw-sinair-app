@@ -11,6 +11,7 @@ use Maestroprog\Saw\Application\Context\ContextPool;
 use Maestroprog\Saw\Memory\SharedMemoryInterface;
 use Maestroprog\Saw\Thread\AbstractThread;
 use Maestroprog\Saw\Thread\MultiThreadingProvider;
+use function Maestroprog\Saw\iterateGenerator;
 
 class MyApplication extends BasicMultiThreaded
 {
@@ -61,10 +62,8 @@ class MyApplication extends BasicMultiThreaded
         return null;
     }
 
-    protected function main($prepared): void
+    protected function main($prepared): \Generator
     {
-        $this->init();
-
         echo '<div class="content-inner mcgl-online-block"><a href="/mcgl/ping/">Состояния каналов (beta)</a></div>';
         echo '<div class="content-inner mcgl-online-block">Онлайн по минутам (вертикальные линии - часы):<br/>';
 
@@ -84,6 +83,7 @@ class MyApplication extends BasicMultiThreaded
                     $vals[] = ['x' => $x, 'y' => $y];
                     ++$i;
                 }
+                yield;
                 return $vals;
             });
 
@@ -98,6 +98,7 @@ class MyApplication extends BasicMultiThreaded
                     }
                     ++$i;
                 }
+                yield;
                 return $hours;
             });
 
@@ -107,12 +108,13 @@ class MyApplication extends BasicMultiThreaded
                 foreach ($arr as $v) {
                     $origvals[] = +$v['v'];
                 }
+                yield;
                 return $origvals;
             });
 
             $start = microtime(true);
-            $this->runThreads([$inner1, $inner2, $inner3]);
-            $this->synchronizeThreads($ts = [$inner1, $inner2, $inner3]);
+            $this->runThreads($inner1, $inner2, $inner3);
+            yield from $this->synchronizeThreads(...$ts = [$inner1, $inner2, $inner3]);
 
             $vals = $inner1->getResult();
             $hours = $inner2->getResult();
@@ -247,6 +249,22 @@ class MyApplication extends BasicMultiThreaded
         });
 
         $this->htmls = $htmlThreads;
+
+        $this->runThreads(...$this->htmls);
+
+        yield from $this->synchronizeThreads(...$this->htmls);
+
+        $content = '';
+        foreach ($this->htmls as $html) {
+            $content .= $html->getResult();
+            /*$timinigs[] = $html->getUniqueId()
+                . ' : work time: ' . round(($html->getEndedTime() - $html->getStartedTime()) * 1000, 1)
+                . ' started at ' . $html->getStartedTime()
+                . ' ended at ' . $html->getEndedTime()
+                . ' really exec time: ' . round($html->getExecTime() * 1000, 1)
+                . ' on worker ' . $html->getWorkerId();*/
+        }
+        return $content;
     }
 
 
@@ -258,18 +276,9 @@ class MyApplication extends BasicMultiThreaded
     public function end()
     {
         $time = microtime(true);
-        $this->synchronizeAll();
+        iterateGenerator($this->synchronizeAll());
         $ended = microtime(true) - $this->i;
-        $content = '';
-        foreach ($this->htmls as $html) {
-            $content .= $html->getResult();
-            /*$timinigs[] = $html->getUniqueId()
-                . ' : work time: ' . round(($html->getEndedTime() - $html->getStartedTime()) * 1000, 1)
-                . ' started at ' . $html->getStartedTime()
-                . ' ended at ' . $html->getEndedTime()
-                . ' really exec time: ' . round($html->getExecTime() * 1000, 1)
-                . ' on worker ' . $html->getWorkerId();*/
-        }
+        $content = $this->mainThread->getResult();
         echo Template::build(
             'index',
             [

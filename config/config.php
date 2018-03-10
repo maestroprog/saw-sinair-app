@@ -5,7 +5,6 @@ use Iassasin\Sinair\SampleApp\di\ParamsContainer;
 use Iassasin\Sinair\SampleApp\di\SinairContainer;
 use Iassasin\Sinair\SampleApp\MCGLOnline;
 use Iassasin\Sinair\SampleApp\MyApplication;
-use Maestroprog\Container\Container;
 use Maestroprog\Saw\Application\Context\ContextPool;
 use Maestroprog\Saw\Memory\SharedMemoryInterface;
 use Maestroprog\Saw\Thread\MultiThreadingProvider;
@@ -22,9 +21,6 @@ foreach ($configs as $configFile) {
     }
 }
 
-Container::instance()->register(new SinairContainer());
-Container::instance()->register(new ParamsContainer(require APP_CONFIG_DIR . 'params.php'));
-
 return array_merge_recursive(
     require __DIR__ . '/saw.php',
     [
@@ -40,6 +36,10 @@ return array_merge_recursive(
                     'db' => ConnectionMysql::class,
                 ],
             ],
-        ]
+        ],
+        'di' => [
+            SinairContainer::class,
+            new ParamsContainer(require APP_CONFIG_DIR . 'params.php'),
+        ],
     ]
 );

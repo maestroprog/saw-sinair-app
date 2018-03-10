@@ -10,7 +10,7 @@
   ],
   "require": {
     "ext-memcache": "*",
-    "maestroprog/saw": "^0.2.2-beta",
+    "maestroprog/saw": "^0.4.1-beta",
     "iassasin/phplate": "^2.0",
     "iassasin/fidb": "^0.1.3"
   },

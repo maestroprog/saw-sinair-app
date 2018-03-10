@@ -2,7 +2,7 @@
 
 return [
     'saw' => [
-        'debug' => true,
+        'debug' => false,
     ],
     'daemon' => [
         'controller_pid' => __DIR__ . '/../cache/controller.pid',
@@ -10,7 +10,7 @@ return [
         'controller_address' => new \Esockets\socket\Ipv4Address('127.0.0.1', 59092),
     ],
     'controller' => [
-        'worker_multiplier' => 1,
+        'worker_multiplier' => 2,
         'worker_max_count' => 4,
     ],
     'application' => [],
